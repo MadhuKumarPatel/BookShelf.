@@ -1,0 +1,67 @@
+@import "../../css-config/mixins.scss";
+
+.main-header {
+    width: 100%;
+    // padding: 0 20px;
+    color: #212121;
+    background-color: rgba(0,0,0,0.05);
+    z-index: 99;
+    @include md{
+        // padding: 0 40px;
+    }
+    .header-content {
+        width: 100%;
+        margin: auto;
+        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include md{
+            height: 80px;
+        }
+        .content{
+            height: 100%;
+            display: flex;
+            padding: 0px 40px;
+            justify-content:space-between;
+            align-items: center;
+            list-style-type: none;
+            gap: 25px;
+            @include md{
+                padding: 0px 120px;
+            }
+            .name{
+                font-size: 24px;
+            }
+            li{
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                .links{
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: black;
+                    font-size: 20px;
+                    @include md{
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+    &.sticky-header {
+        position: sticky;
+        top: 0;
+        transform: translateY(-80px);
+        animation: stickyHeader 0.3s ease forwards;
+        background-color: white;
+    }
+}
+
+@keyframes stickyHeader {
+    0% {
+        transform: translateY(-80px);
+    }
+    100% {transform: translateY(0px);}
+}
+
+
