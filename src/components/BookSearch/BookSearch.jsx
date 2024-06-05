@@ -8,13 +8,18 @@ const BookSearch = () => {
 
   const handleSearch = async (e) => {
     setQuery(e.target.value)
-    try {
-      const response = await axios.get( `https://openlibrary.org/search.json?q=${query}&limit=10&page=1`);
-      setSearchResults(response.data.docs);
-      console.log(response.data.docs);
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
+     if(query===""){
+      return
+     }
+     else{
+      try {
+        const response = await axios.get( `https://openlibrary.org/search.json?q=${query}&limit=10&page=1`);
+        setSearchResults(response.data.docs);
+        console.log(response.data.docs);
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      }
+     }
   };
 
   const addToBookshelf = (book) => {
